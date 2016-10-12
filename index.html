@@ -82,7 +82,60 @@
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="265" data-theme-id="light" data-slug-hash="BLxNZq" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/BLxNZq/">CSS-Only Slider: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+              <h4>DEMO</h4>
+              <div>
+                <iframe srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        $slide-width: 400px;
+        $slide-height: 200px;
+
+        #slider {
+            width: 400px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: $slide-width;
+            height: $slide-height;
+            float: left;
+            position: relative;
+        }
+
+        #slide-holder {
+        // wide enough to fit all the slides
+        width: 400%;
+            position: relative;
+            left: 0;
+            will-change: transform;
+            animation: scroller 10s infinite;
+        }
+
+        // need a step for each slide
+        @keyframes scroller {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-$slide-width); }
+            66% { transform: translateX(-$slide-width*2); }
+            100% { transform: translateX(0); }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;slider&quot;&gt;
+        &lt;div id=&quot;slide-holder&quot;&gt;
+            &lt;div class=&quot;slide&quot;&gt;content1&lt;/div&gt;
+            &lt;div class=&quot;slide&quot;&gt;content2&lt;/div&gt;
+            &lt;div class=&quot;slide&quot;&gt;content3&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+              </div>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -99,7 +152,10 @@
               <div data-code="scss" class="code scss">
                 <h4>SCSS</h4>
                 <div data-lang="scss" class="code-block language-scss">
-                  <pre><code>#slider {
+                  <pre><code>$slide-width: 400px;
+$slide-height: 200px;
+
+#slider {
 	width: $slide-width;
 	height: $slide-height;
 	overflow: hidden;
@@ -143,7 +199,6 @@
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="265" data-theme-id="light" data-slug-hash="pEVjwj" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/pEVjwj/">CSS-Only Modal: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -186,7 +241,6 @@ button:focus + .modal {
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="265" data-theme-id="light" data-slug-hash="jrxbZq" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/jrxbZq/">CSS-Only Image Switcher: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -194,11 +248,11 @@ button:focus + .modal {
                 <div data-lang="markup" class="code-block language-markup">
                   <pre><code>&lt;div id=&quot;slider&quot;&gt;
 
-  &lt;!-- Slide Images --&gt;
-	&lt;img id=&quot;slide-1&quot; src=&quot;img1.jpg&quot; /&gt;
-  &lt;img id=&quot;slide-2&quot; src=&quot;img2.jpg&quot; /&gt;
-  &lt;img id=&quot;slide-3&quot; src=&quot;img3.jpg&quot; /&gt;
-  &lt;img id=&quot;slide-4&quot; src=&quot;img4.jpg&quot; /&gt;
+  	&lt;!-- Slide Images --&gt;
+	&lt;img id=&quot;slide-1&quot; src=&quot;img1.jpg&quot; alt=&quot;img description&quot;/&gt;
+  	&lt;img id=&quot;slide-2&quot; src=&quot;img2.jpg&quot; alt=&quot;img description&quot;/&gt;
+  	&lt;img id=&quot;slide-3&quot; src=&quot;img3.jpg&quot; alt=&quot;img description&quot;/&gt;
+  	&lt;img id=&quot;slide-4&quot; src=&quot;img4.jpg&quot; alt=&quot;img description&quot;/&gt;
 	
 	&lt;!-- Navigation for the slides --&gt;
 	&lt;ul&gt;
@@ -207,7 +261,8 @@ button:focus + .modal {
 		&lt;li&gt;&lt;a href=&quot;#slide-3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;#slide-4&quot;&gt;4&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
                 </div>
               </div>
               <div data-code="scss" class="code scss">
@@ -256,16 +311,15 @@ button:focus + .modal {
           <div id="color_picker" class="comparison">
             <h3><a href="#color_picker">Color Picker</a></h3>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="160" data-theme-id="light" data-slug-hash="BLxjoo" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/BLxjoo/">HTML File Upload: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
                 <h4>HTML</h4>
                 <div data-lang="markup" class="code-block language-markup">
                   <pre><code>&lt;form&gt;
-  &lt;input type=&quot;color&quot; /&gt;
-&lt;/form&gt;</code></pre>
+  &lt;input type=&quot;color&quot; aria-label=&quot;Select a color&quot; /&gt;
+&lt;/form&gt;
+</code></pre>
                 </div>
               </div>
             </div>
@@ -273,16 +327,16 @@ button:focus + .modal {
           <div id="file_upload" class="comparison">
             <h3><a href="#file_upload">File Upload</a></h3>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="160" data-theme-id="light" data-slug-hash="dpZGPa" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/dpZGPa/">HTML File Upload: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
                 <h4>HTML</h4>
                 <div data-lang="markup" class="code-block language-markup">
                   <pre><code>&lt;form&gt;
-  &lt;input type=&quot;file&quot; accept=&quot;image/*&quot;&gt;
+  &lt;input type=&quot;file&quot; accept=&quot;image/*&quot; aria-label=&quot;select file to upload&quot;&gt;
   &lt;input type=&quot;submit&quot;&gt;
-&lt;/form&gt;</code></pre>
+&lt;/form&gt;
+</code></pre>
                 </div>
               </div>
             </div>
@@ -297,7 +351,6 @@ button:focus + .modal {
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="330" data-theme-id="light" data-slug-hash="amGdzK" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/amGdzK/">HTML Form Validation: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -342,7 +395,6 @@ button:focus + .modal {
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="265" data-theme-id="light" data-slug-hash="bwrEpZ" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/bwrEpZ/">CSS Only Scroll Indicator: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -357,10 +409,15 @@ button:focus + .modal {
               <div data-code="scss" class="code scss">
                 <h4>SCSS</h4>
                 <div data-lang="scss" class="code-block language-scss">
-                  <pre><code>body {	
+                  <pre><code>$scroller-height: 6px;
+$scroller-color: #c69;
+$scroller-background: #ddd;
+$body-background: white;
+
+body {
 	background: linear-gradient(to right top, 
-      $scroller-color 50%, 
-      $scroller-background 50%);
+	$scroller-color 50%, 
+	$scroller-background 50%);
 	background-size: 100% calc(100% - 100vh + #{$scroller-height}); 
 	background-repeat: no-repeat;
 }
@@ -373,7 +430,8 @@ body:before {
 	width: 100%;
 	z-index: -1;
 	background: $body-background;
-}</code></pre>
+}
+</code></pre>
                 </div>
               </div>
             </div>
@@ -393,7 +451,6 @@ body:before {
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="310" data-theme-id="light" data-slug-hash="EgLPmZ" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/EgLPmZ/">CSS Only Accordion: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -461,6 +518,72 @@ section {
               </div>
             </div>
           </div>
+          <div id="lightbox" class="comparison">
+            <h3><a href="#lightbox">Lightbox</a></h3>
+            <div class="resources-block">
+              <h4>resources:</h4>
+              <ul class="resources">
+                <li><a href=" http://codepen.io/gschier/pen/HCoqh" target="_blank">Gregory Schier's Codepen</a></li>
+              </ul>
+            </div>
+            <div class="codpen-example">
+            </div>
+            <div class="comparison-group">
+              <div data-code="html" class="code html">
+                <h4>HTML</h4>
+                <div data-lang="markup" class="code-block language-markup">
+                  <pre><code>&lt;!-- thumbnail image wrapped in a link --&gt;
+&lt;a href=&quot;#img1&quot;&gt;
+  &lt;img src=&quot;img.jpg&quot; class=&quot;thumbnail&quot;&gt;
+&lt;/a&gt;
+
+&lt;!-- lightbox container hidden with CSS --&gt;
+&lt;a href=&quot;#&quot; class=&quot;lightbox&quot; id=&quot;img1&quot;&gt;
+  &lt;img src=&quot;img.jpg&quot;&gt;
+&lt;/a&gt;</code></pre>
+                </div>
+              </div>
+              <div data-code="scss" class="code scss">
+                <h4>SCSS</h4>
+                <div data-lang="scss" class="code-block language-scss">
+                  <pre><code>$thumbnail-size: 80px;
+$background-color: rgba(0,0,0,.8);
+
+.thumbnail {
+  max-width: $thumbnail-size;
+}
+
+.lightbox {
+  // Hide lightbox image
+	display: none;
+
+	// Position/style of lightbox
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	left: 0;
+	background: $background-color;
+}
+
+.lightbox img {
+	/// Pad the lightbox image
+	max-width: 90%;
+	max-height: 80%;
+	margin-top: 2%;
+}
+
+.lightbox:target {
+	// Remove default outline and unhide lightbox
+	outline: none;
+	display: block;
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
           <div id="tabs" class="comparison">
             <h3><a href="#tabs">Tabs</a></h3>
             <div class="resources-block">
@@ -471,7 +594,6 @@ section {
               </ul>
             </div>
             <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="265" data-theme-id="light" data-slug-hash="KgRzRE" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/KgRzRE/">KgRzRE</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
             </div>
             <div class="comparison-group">
               <div data-code="html" class="code html">
@@ -548,73 +670,6 @@ section {
 [type=radio]:checked ~ label ~ .content {
   z-index: 1;
   opacity: 1;
-}</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="lightbox" class="comparison">
-            <h3><a href="#lightbox">Lightbox</a></h3>
-            <div class="resources-block">
-              <h4>resources:</h4>
-              <ul class="resources">
-                <li><a href=" http://codepen.io/gschier/pen/HCoqh" target="_blank">Gregory Schier's Codepen</a></li>
-              </ul>
-            </div>
-            <div class="codpen-example">
-              <h4>CODEPEN</h4><p data-height="265" data-theme-id="light" data-slug-hash="wzjGAj" data-default-tab="result" data-user="una" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/una/pen/wzjGAj/">CSS Only Lightbox: youmightnotneedjs.com</a> by Una Kravets (<a href="http://codepen.io/una">@una</a>) on <a href="http://codepen.io">CodePen</a>.</p>
-            </div>
-            <div class="comparison-group">
-              <div data-code="html" class="code html">
-                <h4>HTML</h4>
-                <div data-lang="markup" class="code-block language-markup">
-                  <pre><code>&lt;!-- thumbnail image wrapped in a link --&gt;
-&lt;a href=&quot;#img1&quot;&gt;
-  &lt;img src=&quot;img.jpg&quot; class=&quot;thumbnail&quot;&gt;
-&lt;/a&gt;
-
-&lt;!-- lightbox container hidden with CSS --&gt;
-&lt;a href=&quot;#&quot; class=&quot;lightbox&quot; id=&quot;img1&quot;&gt;
-  &lt;img src=&quot;img.jpg&quot;&gt;
-&lt;/a&gt;</code></pre>
-                </div>
-              </div>
-              <div data-code="scss" class="code scss">
-                <h4>SCSS</h4>
-                <div data-lang="scss" class="code-block language-scss">
-                  <pre><code>$thumbnail-size: 40px;
-$background-color: black;
-
-.thumbnail {
-  max-width: $thumbnail-size;
-}
-
-.lightbox {
-  // Hide lightbox image
-	display: none;
-
-	// Position/style of lightbox
-	position: fixed;
-	z-index: 999;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	top: 0;
-	left: 0;
-	background: $background-color;
-}
-
-.lightbox img {
-	/// Pad the lightbox image
-	max-width: 90%;
-	max-height: 80%;
-	margin-top: 2%;
-}
-
-.lightbox:target {
-	// Remove default outline and unhide lightbox
-	outline: none;
-	display: block;
 }</code></pre>
                 </div>
               </div>

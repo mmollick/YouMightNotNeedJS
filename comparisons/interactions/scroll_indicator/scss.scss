@@ -1,4 +1,9 @@
-body {	
+$scroller-height: 6px;
+$scroller-color: #c69;
+$scroller-background: #ddd;
+$body-background: white;
+
+body {
 	background: linear-gradient(to right top, 
 	$scroller-color 50%, 
 	$scroller-background 50%);

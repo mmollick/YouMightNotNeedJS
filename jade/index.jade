@@ -101,13 +101,14 @@ body
 
                 div.codpen-example
 
-                  for code in ['codepen']
+                  for code in ['demo']
                     if co[code]
                         h4= code.toUpperCase()
 
                         for lang in ['html', 'markup']
                           if co[code][lang]
-                            !{co[code][lang]}
+                            div
+                              iframe(srcdoc=co[code][lang])
 
                 div.comparison-group
 

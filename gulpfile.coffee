@@ -1,5 +1,6 @@
 gulp = require('gulp')
 stylus = require('gulp-stylus')
+sass = require('gulp-sass')
 jade = require('gulp-jade')
 coffee = require('gulp-coffee')
 
@@ -36,6 +37,11 @@ gulp.task 'stylus', ->
   gulp.src('./styl/index.styl')
     .pipe(stylus({use: ['nib']}))
     .pipe(gulp.dest('./css/'))
+
+gulp.task 'sass', ->
+  gulp.src('./comparisons/*/*/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./css/examples.css'))
 
 gulp.task 'jade', ->
   readTree (err, comparisons) ->
